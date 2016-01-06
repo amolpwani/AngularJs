@@ -25,7 +25,7 @@
 	sortby='title';
 	reverse=true;">
 		
-		
+		<input type='text' ng-model='filterby'/>
 		<table border="1">
 			<tr>
 				<th ng-click="sortby='title'; reverse=!reverse">Title</th>
@@ -38,7 +38,8 @@
 				<th ng-click="sortby='price'; reverse=!reverse">Price</th>
 			</tr>
 			<!--tr ng-repeat="hero in heros | orderBy : 'title'"-->
-			<tr ng-repeat="hero in heros | orderBy : sortby : reverse ">
+			<!--tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : filterby "-->
+			<tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : {title : filterby} ">
 				<td ng-bind="hero.title | uppercase"></td>
 				<td>Mr. {{ hero.fName }}</td>
 				<td>{{ hero.lName | uppercase }}</td>
