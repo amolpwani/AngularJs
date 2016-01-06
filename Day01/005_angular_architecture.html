@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Angular Architecture</title>
+		<script src="lib/angular.js"></script>
+		<script src="com/tieto/module/module.js"></script>
+		<script src="com/tieto/controller/controller.js"></script>
+		<script src="lib/angular.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="heroController">
+		<table border="1">
+			<tr>
+				<th ng-click="sortFun('title')">Title</th>
+				<th ng-click="sortFun('fName')">First Name</th>
+				<th ng-click="sortFun('lName')">Last Name</th>
+				<th ng-click="sortFun('photo')">Photo</th>
+				<th ng-click="sortFun('city')">City</th>
+				<th ng-click="sortFun('power')">Power</th>
+				<th ng-click="sortFun('releasedate')">Realese Date</th>
+				<th ng-click="sortFun('price')">Price</th>
+			</tr>
+			<!--tr ng-repeat="hero in heros | orderBy : 'title'"-->
+			<!--tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : filterby "-->
+			<tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : {title : filterby} ">
+				<td ng-bind="hero.title | uppercase"></td>
+				<td>Mr. {{ hero.fName }}</td>
+				<td>{{ hero.lName | uppercase }}</td>
+				<td><img ng-src="{{ hero.photo || 'images/default.jpg'}}" width="40" align="absmiddle"/></td>
+				<td>{{ hero.city }}</td>
+				<td ng-class="hero.power < 8 ? 'red' : 'green'"> {{ hero.power }}</td>
+				<td>{{ hero.releasedate | date:"dd/MMMM/yyyy" }}</td>
+				<td ng-bind="hero.price | currency:'Rs. ':'4'"></td>
+			</tr>
+		</table>
+	</body>
+</html>
