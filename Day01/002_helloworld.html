@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello World</title>
+		<script src="lib/angular.js">
+		
+		</script>
+	</head>
+	<body ng-app ng-init="users = ['batman', '007']; compname='tieto'">
+		<input ng-model="compname"/>
+		<br/>
+		<input value="{{ compname }}"/>
+		<br/>
+		<input value="{{ ::compname }}"/>
+		<hr/>
+		<ul>
+			<li ng-repeat="user in users">{{ user }}</li>
+		</ul>	
+	</body>
+</html>

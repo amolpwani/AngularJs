@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Data Objects</title>
+		<script src="lib/angular.js">
+		
+		</script>
+	</head>
+	<body ng-app ng-init="heros=[
+	{title:'Batman', fName:'Bruce', lName:'Wayne', city:'Gotam', power:7, releasedate: '2016-01-06', price: 123.45, photo: 'images/batman.jpg'},
+	{title:'Superman', fName:'Clark', lName:'Kent', city:'Manhatn', power:8, releasedate: '2016-01-04', price: 235.45, photo: 'images/superman.jpg'},
+	{title:'Ironman', fName:'Amol', lName:'Wani', city:'Pune', power:9, releasedate: '2016-01-10', price: 345.45, photo: 'images/ironman.jpg'},
+	{title:'Spiderman', fName:'Rahul', lName:'Wani', city:'Pimpri', power:10, releasedate: '2016-01-09', price: 567.45, photo: 'images/spiderman.jpg'}
+	]">
+		<ul>
+			<li ng-repeat="hero in heros"> {{ hero.title + " is from city " + hero.city}}</li>
+		</ul>
+	</body>
+</html>
