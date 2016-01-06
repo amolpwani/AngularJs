@@ -14,6 +14,7 @@
 		
 		<table border="1">
 			<tr>
+				<th>Sr.No.</th>
 				<th ng-click="sortFun('title')">Title</th>
 				<th ng-click="sortFun('fName')">First Name</th>
 				<th ng-click="sortFun('lName')">Last Name</th>
@@ -25,8 +26,12 @@
 			</tr>
 			<!--tr ng-repeat="hero in heros | orderBy : 'title'"-->
 			<!--tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : filterby "-->
-			<tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : {title : filterBy} ">
-				<td ng-bind="hero.title | uppercase"></td>
+			<tr ng-repeat=" hero in heros | orderBy : sortby : reverse | filter : {title : filterBy} | limitTo : 2 : offset">
+				<td ng-bind='hero.srno'></td>
+				<td>
+					<label ng-show="$first"></label>
+					{{hero.title | uppercase}}
+				</td>
 				<td>Mr. {{ hero.fName }}</td>
 				<td>{{ hero.lName | uppercase }}</td>
 				<td><img ng-src="{{ hero.photo || 'images/default.jpg'}}" width="40" align="absmiddle"/></td>
@@ -36,5 +41,7 @@
 				<td ng-bind="hero.price | currency:'Rs. ':'4'"></td>
 			</tr>
 		</table>
+		<button ng-hide="offset < 1" ng-click="moveBack()">Back</button>
+		<button ng-hide="offset > heros.length - 2"  ng-click="moveNext()">Next</button>
 	</body>
 </html>
