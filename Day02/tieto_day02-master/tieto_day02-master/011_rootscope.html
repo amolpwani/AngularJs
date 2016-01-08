@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Using RootScope</title>
+	<script src="lib/angular.js"></script>
+	<script>
+		angular.module("app",[]);
+		angular.module("app").controller("controller1", function($scope, $rootScope){
+				$scope.title = " Pune";
+				$rootScope.compName = "Tieto";
+				$scope.fullName = $rootScope.compName +" "+$scope.title;
+		});
+		angular.module("app").controller("controller2", function($scope, $rootScope){
+				$scope.title = " Bangalore";
+				$scope.fullName = $rootScope.compName +" "+$scope.title;
+		});
+		angular.module("app").controller("controller3", function($scope, $rootScope){
+				$scope.title = " Mumbai";
+				$scope.fullName = $rootScope.compName +" "+$scope.title;
+		});
+	</script>
+</head>
+<body ng-app="app">
+	<div ng-controller="controller1">
+		<h1> {{ fullName }} </h1>
+	</div>
+	<hr/>
+	
+	<div ng-controller="controller2">
+		<h1> {{ fullName }} </h1>
+	</div>
+	<hr/>
+	
+	<div ng-controller="controller3">
+		<h1> {{ fullName }} </h1>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Routers</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="lib/angular.js"></script>
+	<script src="lib/angular-route.js"></script>
+	<script src="app/module/app.js"></script>
+	<script src="app/module/config.js"></script>
+	<script src="app/module/dummy.js"></script>
+	<script src="app/controllers/maincontroller.js"></script>
+	<script src="app/controllers/moviescontroller.js"></script>
+</head>
+<body ng-app="app">
+	<div class="container-fluid">
+		<ul class="nav nav-tabs">
+		  <li><a href="#/">Home</a></li>
+		  <li><a href="#/batman">Batman</a></li>
+		  <li><a href="#/superman">Superman</a></li>
+		  <li><a href="#/ironman">Ironman</a></li>
+		  <li><a href="#/phantom">Phantom</a></li>
+		  <li><a href="#/spiderman">Spiderman</a></li>
+		</ul>
+		<ng-view></ng-view>
+	</div>
+</body>
+</html>

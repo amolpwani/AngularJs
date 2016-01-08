@@ -1,0 +1,15 @@
+<h1>Dummy Content</h1>
+<h1>you selected hero # {{ selectedHero }} </h1>
+<table class="table">
+	<tr>
+		<td>Sl #</td>
+		<td>Movie Title</td>
+		<td>Poster</td>
+	</tr>
+	<tr ng-repeat="movie in movies">
+		<td>{{ movie.sl }}</td>
+		<td>{{ movie.title }}</td>
+		<td><img ng-src="{{ movie.poster }}" class="img img-responsive" width="50"/></td>
+	</tr>
+</table>
+<a ng-click="backFun()" class="btn btn-primary">Home</a>
